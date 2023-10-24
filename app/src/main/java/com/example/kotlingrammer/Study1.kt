@@ -4,7 +4,7 @@ import androidx.compose.ui.text.toUpperCase
 
 
 fun main() {
-    println("${mail}")
+    mail()
 
 }
 //4. 조건식
@@ -26,7 +26,7 @@ fun maxBy2(a : Int, b : Int) : Int = if (a > b) a else b
 
 fun checkNum(score : Int){
 //ex.2
-    when(score)
+    when(score){
         1 -> println("This is 1")
         2 -> println("This is 2")
         3, 4 -> println("This is 3 or 4")
@@ -157,11 +157,15 @@ fun nullcheck(){
 
 
 fun mail(){
-    val email : String? = "DaChan@gmail.com"
+    val email : String? = null // 이경우는 let이 반환을 하지 않고
+    //val email : String? = "nol2ggoon2@gmail.com" // 이경우엔 Nonnull 타입이므로 let 함수가 작동
 
-    //let = 자신의 리시버 객체를 람다식 내부로 옮겨준다
+    //let = 자신의 리시버 객체를 람다식 내부로 옮겨준다 즉 null 타입은 반환하지 않는다 println자체가 작동x
     email?.let{
         println("My Email is ${email}")
     }
 }
+
+
+
 
