@@ -17,19 +17,56 @@ package com.example.kotlingrammer
 
 
 //Constructor을 이용하면 이렇게 사용한다
+//ex.1
 
-class Human (val name : String = "Anonymous"){
+open class Human (val name : String = "Anonymous"){
+
+    //constructor
+    //주 생성자에게서 상속받기위해 this를 사용
+    constructor(name : String, age : Int) : this(name) {
+        println("My name is ${name}, ${age} years old")
+
+
+    }
+
+    //init 함수
+    //주 생성자이기 때문에 constructor 블록이 몇개가 있든 init 블럭이 먼저 실행된다.
+
+    init {
+        println("New human has been borned!!")
+    }
+
 
     //val name = name
     fun eatingCake() {
         println("This is so YUMMY")
     }
-}
-fun main(){
-    val human = Human("DaChan")
-    val stranger = Human()
 
-    human.eatingCake()
-    println("This human name is ${stranger.name}")
+    open fun singASong() {
+        println("Lalala")
+    }
+}
+
+//코틀린에서 상속을 받기위해선 클래스를 open 해줘야하한다 ex.1
+
+    class Korean : Human(){
+        fun singAsong() {
+            println("라라라")
+        }
+}
+
+
+
+fun main(){
+//    val human = Human("DaChan")
+//    val stranger = Human()
+    val korean = Korean()
+    korean.singAsong()
+    val mom = Human("YeongIm", 58)
+
+
+
+//    human.eatingCake()
+//    println("This human name is ${stranger.name}")
 
 }
