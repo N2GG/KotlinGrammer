@@ -18,7 +18,7 @@ package com.example.kotlingrammer
 
 //Constructor을 이용하면 이렇게 사용한다
 
-class Human constructor(val name : String){
+class Human (val name : String = "Anonymous"){
 
     //val name = name
     fun eatingCake() {
@@ -27,7 +27,9 @@ class Human constructor(val name : String){
 }
 fun main(){
     val human = Human("DaChan")
+    val stranger = Human()
+
     human.eatingCake()
-    println("This human name is ${human.name}")
+    println("This human name is ${stranger.name}")
 
 }
