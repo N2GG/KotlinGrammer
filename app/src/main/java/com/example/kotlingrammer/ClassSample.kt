@@ -48,11 +48,15 @@ open class Human (val name : String = "Anonymous"){
 }
 
 //코틀린에서 상속을 받기위해선 클래스를 open 해줘야하한다 ex.1
-
+//위의 영어로 작성된 singASong을 사용하려면 super 을 사용하면 된다
     class Korean : Human(){
-        fun singAsong() {
+
+        override fun singASong(){
+        super.singASong()
             println("라라라")
+            println("My name is ${name}")
         }
+
 }
 
 
@@ -61,7 +65,7 @@ fun main(){
 //    val human = Human("DaChan")
 //    val stranger = Human()
     val korean = Korean()
-    korean.singAsong()
+    korean.singASong()
     val mom = Human("YeongIm", 58)
 
 
