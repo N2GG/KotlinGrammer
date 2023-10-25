@@ -11,7 +11,7 @@ package com.example.kotlingrammer.ui.theme
 
 
 //람다식을 만들어보자
-val square  : (Int) -> (Int) = {number -> number*number}
+val square = {number : Int -> number*number}
 //타입추론이 가능하기에 아래처럼 작성할 수도 있다.
 //val square = {number : Int -> number*number}
 
@@ -25,7 +25,33 @@ val nameAge : (String, Int) -> (String) = {name : String, age : Int ->
 fun main() {
     println(square(12))
     println(nameAge("Dachan",31))
+
+
+
+    //ex.2
+    val a = "DaChan"
+    val b = "Jeong"
+
+    println(a.pizzaIsGreat())
+    println(b.pizzaIsGreat())
+
+    //ex.3
+    println(extendString("Dachan", 31))
+
+
 }
 
-//2. 확장함수 =
-//
+//2. 확장함수
+//익명함수이자 String 함수를 확장한다
+//ex.2 참조
+val pizzaIsGreat : String.() -> String = {
+    this + "Pizza is the Best!!"
+}
+
+//확장함수의 다른예를 알아보자
+//ex.3
+fun extendString(name : String, age : Int) : (String) {
+    //밑의 introduceMyself 처럼 파라미터가 딱 하나(Int) 있을경우엔, it 을사용하여 받아올 수 있다.
+    val introduceMyself : String.(Int) -> String = {"My name is ${this} and I'm ${it} years old"}
+    return name.introduceMyself(age)
+}
