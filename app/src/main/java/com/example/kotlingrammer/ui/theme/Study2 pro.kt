@@ -26,3 +26,6 @@ fun main() {
     println(square(12))
     println(nameAge("Dachan",31))
 }
+
+//2. 확장함수 =
+//
